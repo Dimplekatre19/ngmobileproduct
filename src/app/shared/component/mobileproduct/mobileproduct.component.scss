@@ -1,0 +1,38 @@
+.imgcontainer{
+      height: 300px;
+       
+      img{
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .noimgmsg{
+          height: 100%;
+          background-color: #ededed;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+}
+
+.fontstyle{
+     text-decoration: line-through;
+     
+}
+
+.noproduct{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    font-weight: bold;
+}
+
+.notavail{
+     filter: blur(.5px)grayscale(1);
+}

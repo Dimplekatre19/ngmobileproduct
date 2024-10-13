@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4" 
+        *ngFor="let mobile of mobiledata">
+          <div class="card-body"
+          [ngClass]="{
+            notavail:!mobile.isAvailable
+          }">
+             <div class="row">
+                 <div class="col-3">
+                    <!-- <img class="img-fluid"
+                      [src]="mobile.image || 'https://imageplaceholder.net/600x400'"
+                      [alt]="mobile.name"
+                      [title]="mobile.name">  -->
+                    
+                      <!-- <img class="img-fluid"
+                      [src]="mobile.image"
+                      [alt]="mobile.name"
+                      [title]="mobile.name"
+                      *ngIf="mobile.image; else noimage">
+                      <ng-template #noimage>
+                        <img class="img-fluid"
+                        src="https://imageplaceholder.net/600x400"
+                        [alt]="mobile.name"
+                        [title]="mobile.name">
+                      </ng-template> -->
+
+                    <div class="imgcontainer">
+                      <img class="img-fluid"
+                      [src]="mobile.image"
+                      [alt]="mobile.name"
+                      [title]="mobile.name"
+                      *ngIf="mobile.image;else noimg">
+                      <ng-template #noimg>
+                        <p class="text-muted noimgmsg">
+                            product image is not available 
+                        </p>
+                      </ng-template>
+                   </div>  
+                 </div>
+                 <div class="col-7">
+                     <h3>
+                          {{mobile.name}}
+                        <small class="p-2 text-white"
+                        [ngClass]="{
+                             'bg-success':mobile.rating >= 4,
+                             'bg-warning':mobile.rating >= 3 && mobile.rating < 4,
+                             'bg-danger' : mobile.rating < 3
+                        }">
+                            {{mobile.rating}}
+                        </small>
+                     </h3>
+                     <div>
+                        <ul *ngFor="let spec of mobile.specification">
+                            <li>{{spec}}</li>
+                        </ul>
+                     </div>
+                 </div>
+                 <div class="col-2">
+                       <h4>
+                          {{mobile.offerprice}}
+                        <small class="d-block text-muted fontstyle">
+                             {{mobile.originalprice}}
+                        </small>
+                       </h4>
+                       <strong class="text-danger" *ngIf="mobile.noOfItems < 10">
+                                only {{mobile.noOfItems}} left 
+                       </strong>
+                 </div>
+             </div>
+          </div>
+            <strong class="noproduct text-danger" *ngIf="!mobile.isAvailable">
+                  <p>currently unavailable</p>
+            </strong>
+        </div>
+    </div>
+</div>
